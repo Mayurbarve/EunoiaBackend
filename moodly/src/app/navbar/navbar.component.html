@@ -1,0 +1,36 @@
+<nav
+    class="fixed inset-x-0 top-10 z-30 mx-auto max-w-screen-md border border-gray-100 bg-white/80 py-2 shadow backdrop-blur-lg md:top-6 md:rounded-full lg:max-w-screen-lg">
+    <div class="px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex shrink-0">
+                <a aria-current="page" class="flex items-center" href="/">
+                    <!-- <img class="h-7 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt=""> -->
+                    <img [src]="imageUrl" alt="Profile">
+                </a>
+            </div>
+            <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
+                <a aria-current="page"
+                    class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-black transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                    routerLink="/home">Home</a>
+                <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-black transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                    href="#">Explore</a>
+                <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-black transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                    href="#">Goals</a>
+                <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-black transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                    href="#">Allie</a>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+                <div
+                    class="lg:flex hidden items-center space-x-2 bg-white py-1 px-2 rounded-full border border-gray-200">
+                    <i class="bi bi-search"></i>
+                    <input class="outline-none" type="text" placeholder="Search" />
+                </div>
+                <div class="noti">
+                    <i class="bi bi-bell"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<router-outlet/>

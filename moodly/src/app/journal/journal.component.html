@@ -1,0 +1,122 @@
+<div [ngClass]="[containerClass, 'transition-all duration-300']">
+    <div class="min-h-screen bg-[#f5f5f5] flex items-center justify-center p-6">
+      <div class="w-full max-w-6xl bg-white rounded-3xl shadow-xl px-8 py-6 flex gap-10">
+  
+        <!-- Left Section -->
+        <div class="w-1/2 flex flex-col justify-between">
+          <div>
+            <div class="text-sm text-gray-500 mb-2 flex items-center gap-2">
+              <i class="bi bi-hurricane text-orange-400"></i>
+              <span>Your mental wellness companion</span>
+            </div>
+            <h1 class="text-[40px] font-extrabold text-gray-900 leading-tight">
+              Journal & Reflect
+            </h1>
+            <p class="text-gray-600 mt-4 text-base">
+              Empower your mind with daily journaling and emotional reflection.
+            </p>
+          </div>
+          <div class="relative col-span-2 bg-white rounded-2xl overflow-hidden shadow">
+            <div class="absolute inset-0 bg-[url('assets/journal3.png')] bg-cover opacity-10 z-0"></div>
+            <div class="relative z-10 p-6">
+              <i class="bi bi-pencil-square text-purple-600 text-xl"></i>
+              <div class="text-xs text-gray-500 mt-1">Today's Prompt</div>
+              <h2 class="text-lg font-semibold mb-3 text-gray-800">
+                What are you feeling right now, and why?
+              </h2>
+              <textarea rows="4" class="w-full border border-gray-300 rounded-xl p-2 text-sm focus:outline-purple-500" placeholder="Start journaling..."></textarea>
+            </div>
+          </div>
+
+          <!--
+          <div class="bg-white w-full max-w-3xl rounded-xl shadow-lg p-6 relative overflow-y-auto max-h-[80vh]">
+            <button class="absolute top-3 right-3 text-gray-600 hover:text-black" (click)="closeReadModal()">✖</button>
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Your Journal Entries</h2>
+            <div class="space-y-4">
+              <div class="border border-gray-200 p-4 rounded-md shadow-sm">
+                <div class="text-sm text-gray-400">April 5, 2025</div>
+                <p class="text-gray-800 mt-2">"I felt really motivated today after talking to my mentor."</p>
+              </div>
+              <div class="border border-gray-200 p-4 rounded-md shadow-sm">
+                <div class="text-sm text-gray-400">April 4, 2025</div>
+                <p class="text-gray-800 mt-2">"It’s okay to feel low. Tomorrow is a new day to grow."</p>
+              </div>
+            </div>
+          </div>-->
+
+
+          <div class="flex gap-4 mt-10">
+            <button (click)="openReadModal()" class="border border-gray-300 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold">
+              Read Journal
+            </button>
+            <button (click)="openWriteModal()" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-semibold">
+              Write Journal
+            </button>
+          </div>
+        </div>
+  
+        <!-- Right Section -->
+        <div class="w-1/2 flex flex-col gap-4">
+  
+          <!-- Journal Insights -->
+          <div class="bg-purple-100 rounded-xl p-4">
+            <h2 class="text-lg font-semibold text-purple-800 mb-2">Journal Insights</h2>
+            <p class="text-sm text-purple-900">You're most reflective on Wednesdays and often write about self-growth.</p>
+          </div>
+  
+          <!-- Mood Today -->
+          <div class="bg-orange-100 rounded-xl p-4">
+            <h2 class="text-lg font-semibold text-orange-800 mb-2">Mood Today</h2>
+            <p class="text-sm text-orange-900">😊 Feeling good and optimistic.</p>
+          </div>
+  
+          <!-- Self Reflection -->
+          <div class="bg-green-100 rounded-xl p-4">
+            <h2 class="text-lg font-semibold text-green-800 mb-2">Self Reflection</h2>
+            <p class="text-sm text-green-900">"Today I learned to be patient with myself and others."</p>
+          </div>
+  
+          <!-- Daily Tip -->
+          <div class="bg-blue-100 rounded-xl p-4">
+            <h2 class="text-lg font-semibold text-blue-800 mb-2">Daily Tip</h2>
+            <p class="text-sm text-blue-900">Write for 5 minutes without editing. Let your thoughts flow naturally.</p>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <!-- Write Modal -->
+    <div *ngIf="showWriteModal" class="fixed inset-0 z-50 bg-[url('assets/jouno-bg.jpg')] bg-cover bg-opacity-80 flex items-center justify-center">
+      <div class=" bg-white w-full max-w-2xl rounded-xl shadow-lg p-6 relative">
+        <button class="absolute top-3 right-3 text-gray-600 hover:text-black" (click)="closeWriteModal()">✖</button>
+        <h2 class="text-xl font-bold mb-4 text-black">Write Your Journal</h2>
+        <textarea rows="10" class=" text-black w-full border bg-amber-50 border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Start writing your thoughts..."></textarea>
+        <div class="flex justify-end mt-4">
+          <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700">Save</button>
+        </div>
+      </div>
+    </div>
+
+    
+  
+    <!-- Read Modal -->
+    <div *ngIf="showReadModal" class="fixed inset-0 z-50 bg-[url('assets/jouno-bg.jpg')] bg-cover bg-opacity-80 flex items-center justify-center">
+      <div class="bg-white w-full max-w-3xl rounded-xl shadow-lg p-6 relative overflow-y-auto max-h-[80vh]">
+        <button class="absolute top-3 right-3 text-gray-600 hover:text-black" (click)="closeReadModal()">✖</button>
+        <h2 class="text-xl font-bold mb-4 text-gray-800">Your Journal Entries</h2>
+        <div class="space-y-4">
+          <!-- Replace below dummy entries with dynamic data -->
+          <div class="border border-gray-200 p-4 rounded-md shadow-sm">
+            <div class="text-sm text-gray-400">April 5, 2025</div>
+            <p class="text-gray-800 mt-2">"I felt really motivated today after talking to my mentor."</p>
+          </div>
+          <div class="border border-gray-200 p-4 rounded-md shadow-sm">
+            <div class="text-sm text-gray-400">April 4, 2025</div>
+            <p class="text-gray-800 mt-2">"It’s okay to feel low. Tomorrow is a new day to grow."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

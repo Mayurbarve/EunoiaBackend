@@ -1,0 +1,45 @@
+<div class="h-[500px] bg-[#f5f5f5] min-h-screen flex items-center justify-center p-14">
+  <div class="w-full max-w-4xl bg-white rounded-3xl shadow-xl p-10 grid grid-cols-2 gap-10 h-full">
+
+    <!-- Left Side (Illustration) -->
+    <div class="flex flex-col justify-center text-center">
+      <h2 class="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+        Welcome Back 👋
+      </h2>
+      <p class="text-base text-gray-600 mb-6">
+        Let’s continue your journey toward mental wellness.
+      </p>
+      <img src="assets/signin-illustration.png" alt="Signin" class="rounded-xl p-2 shadow-md w-full max-h-[300px] object-contain mx-auto">
+    </div>
+
+    <!-- Right Side (Form) -->
+    <div class="flex flex-col justify-center">
+      <h3 class="text-2xl font-semibold text-gray-800 mb-6">Sign In to Your Account</h3>
+      <form class="space-y-4" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" formControlName="email"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Password</label>
+          <input type="password" formControlName="password"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <button type="submit"
+          class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-semibold">
+          Sign In
+        </button>
+
+        <p class="text-sm text-gray-500 text-center mt-4">
+          Don't have an account?
+          <a routerLink="/signup" class="text-purple-600 hover:underline">Sign up here</a>
+        </p>
+      </form>
+    </div>
+
+  </div>
+</div>
