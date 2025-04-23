@@ -1,0 +1,49 @@
+<div class="appointment-container">
+  <h2 class="text-center mb-4">Book an Appointment</h2>
+
+  <form (ngSubmit)="submitAppointment()" #appointmentForm="ngForm" *ngIf="!submitted" novalidate>
+    <div class="form-group mb-3">
+      <label for="patientName">Patient Name</label>
+      <input type="text" id="patientName" class="form-control" [(ngModel)]="patientName" name="patientName" required />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" class="form-control" [(ngModel)]="phone" name="phone" required />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="preferredDate">Preferred Date</label>
+      <input type="date" id="preferredDate" class="form-control" [(ngModel)]="preferredDate" name="preferredDate" required />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="preferredTime">Preferred Time</label>
+      <input type="time" id="preferredTime" class="form-control" [(ngModel)]="preferredTime" name="preferredTime" required />
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="selectedDoctor">Select Doctor</label>
+      <select id="selectedDoctor" class="form-select" [(ngModel)]="selectedDoctor" name="selectedDoctor" required>
+        <option value="" disabled selected>Select a doctor</option>
+        <option *ngFor="let doctor of doctors" [value]="doctor">{{doctor}}</option>
+      </select>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary px-5">Book Appointment</button>
+    </div>
+  </form>
+
+  <div *ngIf="submitted" class="text-center">
+    <h3>Thank you, {{patientName}}!</h3>
+    <p>Your appointment with {{selectedDoctor}} on {{preferredDate}} at {{preferredTime}} has been booked.</p>
+    <button class="btn btn-secondary mt-3" (click)="resetForm()">Book Another Appointment</button>
+  </div>
+</div>
+

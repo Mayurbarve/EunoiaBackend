@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { RouterLink} from '@angular/router';
-
-
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ SidebarComponent],
+  imports: [ RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'moodly';
+  title = 'Moodly';
 }

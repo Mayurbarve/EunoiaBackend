@@ -1,36 +1,46 @@
+import { Routes } from "@angular/router";
+import { AuthGuard } from "./auth.guard";
+import { WelcomeComponent } from "./welcome/welcome.component";
+import { LoginComponent } from "./components/login/login.component";
+import { SignupComponent } from "./components/signup/signup.component";
 
-import { Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { ActivityComponent } from './activity/activity.component';
-import { MoodComponent } from './mood/mood.component';
-import { SchedulesComponent } from './schedules/schedules.component';
-import { SettingsComponent } from './settings/settings.component';
-import { JournalComponent } from './journal/journal.component';
-import { SignupComponent } from './signup/signup.component';
-import { SigninComponent } from './signin/signin.component';
-import { HelpmeComponent } from './helpme/helpme.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ExploreComponent } from './explore/explore.component';
+import { LayoutComponent } from "./layout/layout.component";
+import { ProfileComponent } from "./pageComponents/profile/profile.component";
+import { HomeComponent } from "./pageComponents/home/home.component";
+import { ActivityComponent } from "./pageComponents/activity/activity.component";
+import { JournalComponent } from "./pageComponents/journal/journal.component";
+import { MoodComponent } from "./pageComponents/mood/mood.component";
+import { SchedulesComponent } from "./pageComponents/schedules/schedules.component";
+import { SettingsComponent } from "./pageComponents/settings/settings.component";
+import { HelpmeComponent } from "./pageComponents/helpme/helpme.component";
+import { ExploreComponent } from "./pageComponents/explore/explore.component";
+import { HealioComponent } from "./pageComponents/healio/healio.component";
+import { TestComponent } from "./pageComponents/test/test.component";
+import { DashboardComponent } from "./pageComponents/dashboard/dashboard.component";
+
+
 
 export const routes: Routes = [
-  {path: 'signup',component:SignupComponent},
-  {path: 'signin',component:SigninComponent},
+  { path: '', component: WelcomeComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
 
-  {path:  'profile',component:ProfileComponent},
-  { path: 'home', component: HomeComponent },
-
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'activity', component: ActivityComponent},
-  { path: 'journals', component: JournalComponent},
-  { path: 'mood', component: MoodComponent},
-  { path: 'schedules', component: SchedulesComponent},
-  { path: 'setting', component: SettingsComponent},
-  {path:  'help',component:HelpmeComponent},
-  {path: 'explore', component:ExploreComponent},
-
-
-  { path: '', redirectTo: 'home', pathMatch: 'full' },  // Default route
-  { path: '**', redirectTo: 'home' } // Wildcard route for unknown paths
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'profile', component: ProfileComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'activity', component: ActivityComponent },
+      { path: 'journals', component: JournalComponent },
+      { path: 'mood', component: MoodComponent },
+      { path: 'schedules', component: SchedulesComponent },
+      { path: 'setting', component: SettingsComponent },
+      { path: 'help', component: HelpmeComponent },
+      { path: 'explore', component: ExploreComponent },
+      { path: 'healio', component: HealioComponent },
+      { path: 'test', component: TestComponent }
+    ]
+  },
 ];
-

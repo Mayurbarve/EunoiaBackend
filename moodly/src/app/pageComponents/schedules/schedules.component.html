@@ -1,0 +1,92 @@
+<!-- home.component.html -->
+<div [ngClass]="[containerClass, 'transition-all duration-300']">
+    <div class="h-[600px] min-h-screen bg-[#f0fffe]  flex items-center justify-center p-12">
+      <div class="w-full max-w-6xl bg-white rounded-3xl shadow-xl p-10 flex gap-10 h-full">
+  
+        <!-- Left Content -->
+        <div class="w-1/2 flex flex-col justify-between">
+          <div>
+            <div class="text-[45px] font-extrabold text-gray-900 leading-tight">
+              Book therapy sessions
+            </div>
+            <div class="text-5xl font-extrabold text-gray-300 leading-tight mt-1 mb-6">
+              with mental health experts
+            </div>
+            <p class="mt-8 mt text-gray-700 text-base">
+              Easily schedule doctor consultations, track appointments, and connect with professionals who care about your well-being.
+            </p>
+          </div>
+  
+          <div class="flex gap-4 mt-10">
+            <button
+              class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2">
+              Schedule Session
+            </button>
+            <button class="border border-gray-300 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold">
+              Meet Our Doctors
+            </button>
+          </div>
+  
+          <p class="text-sm text-gray-500 mt-4">
+            Trusted by individuals seeking peace and balance.
+          </p>
+        </div>
+  
+        <!-- Right Content -->
+        <div class="w-1/2 flex flex-col gap-4 relative">
+  
+          <!-- Appointment Location -->
+          <div
+            class="absolute top-0 right-0 bg-black text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm">
+            <span class="material-icons text-yellow-400">location_on</span>
+            Dr. Asha | Wellness Room 3
+          </div>
+  
+          <!-- Session Info -->
+          <div class="bg-gray-100 rounded-xl p-4 w-full">
+            <div class="text-sm font-semibold text-gray-800 mb-2">Session Includes:</div>
+            <div class="flex gap-2 flex-wrap">
+              <span class="bg-white px-2 py-1 text-xs rounded-full border border-gray-300">One-on-One Talk</span>
+              <span class="bg-white px-2 py-1 text-xs rounded-full border border-gray-300">Guided Meditation</span>
+              <span class="bg-white px-2 py-1 text-xs rounded-full border border-gray-300">Progress Notes</span>
+            </div>
+            <div class="text-xs text-gray-500 mt-2">April 10, 3:00 pm – 4:00 pm</div>
+          </div>
+  
+          <div class="bg-black text-white rounded-full px-4 py-2 w-fit">Session Confirmed</div>
+  
+          <!-- Booking session Card -->
+          <div class="bg-white rounded-xl p-4 shadow-md flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full" />
+            <div>
+              <div class="text-sm font-bold">See you at MindSpace Wellness!</div>
+              <div class="text-xs text-gray-500">April 10, 3:00 pm – 4:00 pm</div>
+              <div class="text-xs text-gray-500">With Dr. Asha (Room 3)</div>
+            </div>
+            <button class="ml-auto bg-orange-200 text-black rounded-full px-4 py-1 text-xs">Share Appointment</button>
+          </div>
+  
+          <!-- Check-in Notification -->
+          <div class="bg-white rounded-xl p-3 shadow-md flex items-center gap-3">
+            <div class="bg-orange-200 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">A</div>
+            <div class="text-xs">
+              <span class="font-bold">Asha checked you in!</span><br>
+              Your session is in Room 3
+            </div>
+            <span class="text-[10px] text-gray-400 ml-auto">10m ago</span>
+          </div>
+  
+          <!-- Progress Tracker -->
+          <div class="flex gap-1 mt-2">
+            <div class="w-4 h-4 rounded bg-gray-300"></div>
+            <div class="w-4 h-4 rounded bg-gray-300"></div>
+            <div class="w-4 h-4 rounded bg-orange-200 border-2 border-white"></div>
+            <div class="w-4 h-4 rounded bg-gray-300"></div>
+            <div class="w-4 h-4 rounded bg-gray-300"></div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  

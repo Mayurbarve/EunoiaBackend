@@ -1,0 +1,83 @@
+<div class="bg-[#f0fffe]  min-h-screen flex items-center justify-center p-14">
+    <div class="w-full max-w-6xl bg-white rounded-3xl shadow-xl p-10 flex flex-col gap-10 h-full">
+
+        <div class="grid grid-cols-2 gap-10 w-full h-full">
+
+            <!-- Left Side (Illustration) -->
+            <div class="flex flex-col justify-center text-center">
+                <h2 class="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+                    Welcome to EUNOIA ✨
+                </h2>
+                <p class="text-base text-gray-600 mb-6">
+                    Join us to explore personalized wellness activities and track your emotional growth.
+                </p>
+                <!-- <img src="assets/signup-illustration.png" alt="Signup"
+                    class="rounded-xl p-2 shadow-md w-full max-h-[300px] object-contain mx-auto"> -->
+            </div>
+
+            <!-- Right Side (Form) -->
+            <div class="flex flex-col justify-center">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Create Your Account</h3>
+                <form [formGroup]="signupForm" (ngSubmit)="signup()" class="space-y-4">
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" formControlName="name"
+                            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" formControlName="email"
+                            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Contact</label>
+                        <input type="text" formControlName="contact"
+                            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Age</label>
+                            <input type="number" formControlName="age"
+                                class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Designation</label>
+                            <input type="text" formControlName="designation"
+                                class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" formControlName="password"
+                            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-semibold"
+                        [disabled]="signupForm.invalid || isSubmitting">
+                        Sign Up
+                    </button>
+
+                    <p *ngIf="errorMessage" class="text-red-500 text-sm text-center mt-2">
+                        {{ errorMessage }}
+                    </p>
+
+
+                    <p class="text-sm text-gray-500 text-center mt-4">
+                        Already have an account?
+                        <a routerLink="/login" class="text-purple-600 hover:underline">Log in here</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

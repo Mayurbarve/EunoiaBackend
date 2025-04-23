@@ -1,0 +1,90 @@
+<div [ngClass]="[containerClass, 'transition-all duration-300']">
+  <div class="h-[600px] min-h-screen bg-[#f0fffe]  flex items-center justify-center p-12">
+    <div class="w-full max-w-6xl bg-white rounded-3xl shadow-xl p-10 flex flex-col gap-10 h-full">
+
+      <!-- Profile Header -->
+      <div class="flex gap-10">
+        <!-- Profile Image -->
+        <div class="flex flex-col items-center gap-4">
+          <img [src]="user.profileImage" class="w-40 h-40 rounded-full border-4 border-purple-500 shadow" />
+          <h2 class="text-xl font-bold text-gray-700">{{ user.name }}</h2>
+          <p class="text-sm text-gray-500">{{ user.designation }}</p>
+        </div>
+
+        <!-- Info -->
+        <div class="flex-1">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-lg font-semibold text-purple-600">Profile Details</h3>
+              <p class="text-sm text-gray-400 mb-4">Manage your personal information</p>
+            </div>
+            <button (click)="openEditModal()"
+              class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl shadow">
+              Edit Profile
+            </button>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-100 p-4 rounded-xl shadow-inner text-sm text-gray-800">
+            <div><strong>Email:</strong> {{ user.email }}</div>
+            <div><strong>Contact:</strong> {{ user.contact }}</div>
+            <div><strong>Age:</strong> {{ user.age }}</div>
+            <div><strong>Join Date:</strong> {{ user.date }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Entries -->
+      <div>
+        <h4 class="text-lg font-semibold text-purple-600 mb-2">Recent Journal Entries</h4>
+        <div class="bg-gray-100 p-2 rounded-xl text-sm text-gray-800 space-y-2">
+          <ng-container *ngIf="journalEntries.length > 0; else noEntries">
+            <div *ngFor="let entry of journalEntries" class="p-3 bg-white rounded-lg shadow-sm">
+              <strong>{{ entry.date }}:</strong> {{ entry.content }}
+            </div>
+          </ng-container>
+          <ng-template #noEntries>
+            <div class="text-center text-gray-500 p-3 bg-white rounded-lg shadow-sm">
+              No journal entries yet. Start writing today!
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      
+
+      <!-- Modal -->
+      <div *ngIf="isEditModalOpen"
+        class="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+        <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl border border-gray-200 p-10">
+          <h3 class="text-2xl font-semibold mb-6 text-gray-700">Edit Profile</h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input [(ngModel)]="editUser.name" type="text" placeholder="Name" class="w-full border p-3 rounded-xl" />
+            <input [(ngModel)]="editUser.email" type="email" placeholder="Email"
+              class="w-full border p-3 rounded-xl" />
+            <input [(ngModel)]="editUser.contact" type="number" placeholder="Contact"
+              class="w-full border p-3 rounded-xl" />
+            <input [(ngModel)]="editUser.age" type="number" placeholder="Age" class="w-full border p-3 rounded-xl" />
+            <input [(ngModel)]="editUser.designation" type="text" placeholder="Designation"
+              class="w-full border p-3 rounded-xl" />
+            <input [(ngModel)]="editUser.date" type="date" class="w-full border p-3 rounded-xl" />
+          </div>
+
+          <div class="mt-6">
+            <label class="text-sm mb-1 text-gray-600 block">Update Profile Picture</label>
+            <input type="file" (change)="handleImageUpload($event)" accept="image/*"
+              class="w-full border p-3 rounded-xl" />
+          </div>
+
+          <div class="mt-8 flex justify-end gap-4">
+            <button (click)="closeEditModal()"
+              class="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-xl">Cancel</button>
+            <button (click)="saveChanges()"
+              class="px-6 py-3 bg-purple-600 text-white hover:bg-purple-700 rounded-xl">Save</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div [ngClass]="[containerClass, 'transition-all duration-300']">
+  <div class="h-[600px] min-h-screen bg-[#f0fffe]  flex items-center justify-center p-12">
+    <div class="w-full max-w-6xl bg-white rounded-3xl shadow-xl p-10 flex gap-10 h-full">
+
+      <!-- Left Section: Mood Input -->
+      <div class="w-1/2 flex flex-col justify-between">
+        <div>
+          <div class="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+            How are you feeling today?
+          </div>
+
+          <!-- Mood Options -->
+          <div class="grid grid-cols-5 gap-2 mt-4 mb-6">
+            <button 
+              *ngFor="let mood of ['😞 Terrible', '😕 Bad', '😐 Okay', '😊 Good', '😁 Great']"
+              (click)="selectMood(mood)"
+              [ngClass]="{'bg-purple-600 text-white': selectedMood === mood, 'bg-gray-100 text-black': selectedMood !== mood}"
+              class="px-4 py-2 rounded-xl text-sm font-medium hover:bg-purple-500 hover:text-white transition-colors"
+            >
+              {{ mood }}
+            </button>
+          </div>
+
+          <!-- Activity -->
+          <label class="block text-sm font-semibold text-gray-700 mb-1">What are you doing?</label>
+          <input type="text" placeholder="e.g. Studying, Resting, Working..."
+                 [(ngModel)]="activity"
+                 class="w-full border border-gray-300 rounded-xl px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+
+          <!-- Reflection -->
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Self-reflection</label>
+          <textarea rows="4" placeholder="Write your thoughts here..."
+                    [(ngModel)]="reflection"
+                    class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+        </div>
+
+        <button (click)="saveMood()"
+          class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-semibold mt-6 self-start">
+          Save Mood
+        </button>
+      </div>
+
+      <!-- Right Section: Logs + Insights -->
+      <div class="w-1/2 flex flex-col gap-4 relative">
+
+        <div class="text-xl font-bold text-gray-800 mb-2">Your Recent Mood Logs</div>
+
+        <!-- Mood Log Card -->
+        <div *ngFor="let entry of moodEntries" class="bg-gray-100 p-4 rounded-xl shadow-sm">
+          <div class="flex justify-between items-center mb-2">
+            <div class="font-semibold text-sm text-gray-800">{{ entry.mood }}</div>
+            <div class="text-xs text-gray-500">{{ entry.date | date:'medium' }}</div>
+          </div>
+          <div class="text-sm text-gray-600">"{{ entry.reflection }}"</div>
+        </div>
+
+        <!-- Insights -->
+        <div class="mt-6">
+          <div class="text-lg font-semibold text-gray-800 mb-2">Mood Insights</div>
+          <div class="bg-purple-100 text-purple-900 rounded-xl p-4 text-sm">
+            You’ve been feeling good most of the time this week. Keep up your positive routines! 🌈
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

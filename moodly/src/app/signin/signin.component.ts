@@ -1,41 +1,49 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, RouterOutlet, RouterLink],
   templateUrl: './signin.component.html',
-  styleUrl: './signin.component.css'
+  styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  loginForm: FormGroup;
+  credentials = {
+    email: '',
+    password: ''
+  };
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
-    this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
-    });
-  }
+  errorMessage = '';
+  isLoading = false;
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
-    const { email, password } = this.loginForm.value;
+    if (!this.credentials.email || !this.credentials.password) {
+      this.errorMessage = 'Please enter both email and password.';
+      return;
+    }
 
-    this.http.get<any>(`http://localhost:8080/users/${email}`).subscribe({
-      next: (user) => {
-        if (user && user.password === password) {
-          console.log("Login successful ✅", user);
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.http.post<{ token: string }>('http://localhost:8080/authenticate', this.credentials)
+      .subscribe({
+        next: response => {
+          localStorage.setItem('token', response.token);
           this.router.navigate(['/home']);
-        } else {
-          alert("❌ Invalid credentials");
+        },
+        error: err => {
+          console.error('Login failed:', err);
+          this.errorMessage = 'Invalid email or password. Please try again.';
+        },
+        complete: () => {
+          this.isLoading = false;
         }
-      },
-      error: () => {
-        alert("⚠️ User not found");
-      }
-    });
+      });
   }
 }

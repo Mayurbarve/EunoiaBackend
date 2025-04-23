@@ -1,0 +1,133 @@
+.container{
+    display: flex;
+    padding:30px;
+}
+/*.container my-4{
+        justify-content: center;
+    
+    }*/
+
+.card{
+     justify-content: center;
+    margin: 50px 50px 50px 50px;
+}
+body{
+    background-color: aqua;
+}
+
+.outer{
+    display: flex;
+    padding:30px;
+}
+.cardf{
+   justify-content: center;
+   margin: 50px 50px 50px 50px ;
+}
+
+ul{
+    list-style: none;
+}
+.listv ul{
+    display:flex;
+    flex-direction: row;
+    padding:18px;
+    width: 100%;
+    border: 10px 10px 10px 10px;
+    background: pink;
+    justify-content: center;
+
+}
+.listv ul li{
+    margin:20px;
+    font-size: larger;
+    font-weight: 400;
+}
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f3e8ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+    height: 600px;
+    overflow-y: auto;
+    }
+    
+    h2 {
+    color: #6a0dad;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+    
+    }
+    
+    .question-box {
+    background-color: #e6e6fa; /* Light purple shade */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    }
+    
+    .question-box:hover {
+    background-color: #d8bfd8; /* Slightly darker purple on hover / 
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.7); / Purple shadow */
+    }
+    
+    .form-label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: #4b0082;
+    }
+    
+    .form-check {
+    margin-left: 10px;
+    margin-bottom: 0.5rem;
+    }
+    
+    .form-check-input {
+    cursor: pointer;
+    }
+    
+    .btn-primary {
+    width: 200px;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #6a0dad;
+    border-color: #6a0dad;
+    }
+    
+    .btn-primary:hover {
+    background-color: #4b0082;
+    border-color: #4b0082;
+    }
+    
+    .text-center h3 {
+    margin-top: 20px;
+    color: #6a0dad;
+    font-weight: 600;
+    }
+    
+    .text-center p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: #4b0082;
+    }
+    
+    .btn-secondary {
+    padding: 10px 25px;
+    font-size: 1rem;
+    margin-top: 20px;
+    background-color: #d8bfd8;
+    border-color: #d8bfd8;
+    color: #4b0082;
+    }
+    
+    .btn-secondary:hover {
+    background-color: #c0a9d6;
+    border-color: #c0a9d6;
+    color: #2e0854;
+    }
