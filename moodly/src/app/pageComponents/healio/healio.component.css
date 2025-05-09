@@ -1,9 +1,0 @@
-/* Optional: smooth scroll for chat area */
-::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #c4c4c4;
-    border-radius: 4px;
-  }
-  
